@@ -36,15 +36,15 @@ def generate_test_event():
         print(f"Error writing to file: {e}")
         return None
 
-    try:
-        s3 = boto3.client('s3')
-        s3.upload_file('test-event.json', BUCKET_NAME, f'test-event-{event_key}.json')
-        # then delete the file
-        os.remove('test-event.json')
-    except Exception as e:
-        print(f"Error uploading to S3: {e}")
-        return None
-    return data
+    # try:
+    #     s3 = boto3.client('s3')
+    #     s3.upload_file('test-event.json', BUCKET_NAME, f'test-event-{event_key}.json')
+    #     # then delete the file
+    #     os.remove('test-event.json')
+    # except Exception as e:
+    #     print(f"Error uploading to S3: {e}")
+    #     return None
+    # return data
 
 if __name__ == '__main__':
     generate_test_event()
